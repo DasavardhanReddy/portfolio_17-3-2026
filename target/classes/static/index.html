@@ -29,7 +29,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="/cv.pdf" download="Gotluru_Dasavardhan_Reddy_CV.pdf" class="btn btn-cv">Download CV</a>
+                <li><a href="cv.pdf" download="Gotluru_Dasavardhan_Reddy_CV.pdf" class="btn btn-cv">Download CV</a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -65,8 +65,10 @@
         </div>
         <div class="home-img">
             <div class="img-box">
-                <!-- Replace with an actual image or illustration -->
+                <!-- Replace with an actual image or illustration -
                 <i class="fa-solid fa-code icon-large placeholder-img"></i>
+            -->
+                <img src="images/own_image.PNG" alt="My Profile" class="profile-img">
             </div>
         </div>
         <div class="scroll-down">
@@ -81,6 +83,7 @@
             <div class="about-img">
                 <div class="glass-panel">
                     <i class="fa-solid fa-user-astronaut icon-large"></i>
+
                 </div>
             </div>
             <div class="about-text">
@@ -307,19 +310,20 @@
                         <a href="https://github.com/DasavardhanReddy/FLIGHT-TRACKING-.git"><i
                                 class="fab fa-github"></i></a>
                     </div>
-                </div <div class="project-info">
-                <h3>Flight Tracking</h3>
-                <p>
-                    Built a real-time flight tracking app using Aviation Stack API with dynamic updates,
-                    responsive UI, and improved performance.
-                </p>
-                <div class="tech-stack">
-                    <span>HTML/CSS</span>
-                    <span>JavaScript</span>
-                    <span>Aviation Stack API</span>
+                </div>
+                <div class="project-info">
+                    <h3>Flight Tracking</h3>
+                    <p>
+                        Built a real-time flight tracking app using Aviation Stack API with dynamic updates,
+                        responsive UI, and improved performance.
+                    </p>
+                    <div class="tech-stack">
+                        <span>HTML/CSS</span>
+                        <span>JavaScript</span>
+                        <span>Aviation Stack API</span>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 
@@ -420,18 +424,18 @@
                 </div>
             </div>
 
-            <form class="contact-form glass-card">
+            <form id="contactForm" class="contact-form glass-card">
                 <div class="input-group">
-                    <input type="text" placeholder="Your Name" required />
+                    <input type="text" name="name" placeholder="Your Name" required />
                 </div>
                 <div class="input-group">
-                    <input type="email" placeholder="Your Email" required />
+                    <input type="email" name="email" placeholder="Your Email" required />
                 </div>
                 <div class="input-group">
-                    <input type="text" placeholder="Subject" required />
+                    <input type="text" name="subject" placeholder="Subject" required />
                 </div>
                 <div class="input-group">
-                    <textarea cols="30" rows="6" placeholder="Your Message" required></textarea>
+                    <textarea name="message" cols="30" rows="6" placeholder="Your Message" required></textarea>
                 </div>
                 <button type="submit" class="btn">
                     Send Message <i class="fa-solid fa-paper-plane"></i>
@@ -440,14 +444,14 @@
         </div>
     </section>
 
-    <!-- CV Viewer Modal -->
+    <!-- CV Viewer Modal 
     <div id="cvModal" class="cv-modal">
         <div class="cv-modal-overlay"></div>
         <div class="cv-modal-container">
             <button id="closeCvBtn" class="cv-close-btn" title="Close">
                 <i class="fa-solid fa-times"></i>
             </button>
-            <a id="downloadCvLink" href="cv.pdf" download="Dasavardhan_Reddy_CV.pdf" class="cv-download-float"
+            <a id="downloadCvLink" href="cv" download="Dasavardhan_Reddy_CV.pdf" class="cv-download-float"
                 title="Download CV">
                 <i class="fa-solid fa-download"></i>
             </a>
@@ -455,7 +459,7 @@
                 <iframe id="cvFrame" src="cv.pdf" type="application/pdf"></iframe>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <!-- Custom JS -->
     <script src="js/main.js"></script>

@@ -46,12 +46,41 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Prevent default form submission for demo
-const contactForm = document.querySelector('.contact-form');
+// Handle form submission
+const contactForm = document.getElementById('contactForm');
 if(contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        alert('Thank you for your message! This is a demo form, so no email was actually sent. We will build the backend later to handle this.');
-        contactForm.reset();
+        
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
+        submitBtn.disabled = true;
+
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            const response = await fetch('/api/contact/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                alert('Thank you for your message! It has been sent successfully.');
+                contactForm.reset();
+            } else {
+                throw new Error('Failed to send message.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Oops! Something went wrong. Please try again later.');
+        } finally {
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+        }
     });
 }

@@ -1,2 +1,3 @@
-com\portfolio\controller\PortfolioController.class
 com\portfolio\PortfolioApplication.class
+com\portfolio\controller\ContactController.class
+com\portfolio\controller\PortfolioController.class

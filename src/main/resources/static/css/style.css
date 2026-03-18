@@ -413,6 +413,8 @@ header.sticky {
     align-items: center;
 }
 
+
+
 .img-box {
     width: 400px;
     height: 400px;
@@ -424,7 +426,22 @@ header.sticky {
     box-shadow: 0 0 50px rgba(59, 130, 246, 0.2);
     border: 2px solid var(--glass-border);
     position: relative;
+
+
+
     animation: float 6s ease-in-out infinite;
+    overflow: hidden;
+
+    .profile-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* keeps image properly fitted */
+        border-radius: 50%;
+        object-position: center;
+        background-size: cover;
+        object-position: 50% 20%;
+    }
 }
 
 @keyframes float {
@@ -476,6 +493,8 @@ header.sticky {
     justify-content: center;
     align-items: center;
     box-shadow: -20px 20px 0px rgba(59, 130, 246, 0.2);
+
+
 }
 
 .about-text h3 {
