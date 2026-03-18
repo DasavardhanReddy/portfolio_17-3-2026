@@ -57,10 +57,7 @@ if (contactForm) {
         submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
         submitBtn.disabled = true;
 
-        //const formData = new FormData(contactForm);
-        //const data = Object.fromEntries(formData.entries());
         const data = {
-            "form-name": "contact",
             name: contactForm.name.value,
             email: contactForm.email.value,
             subject: contactForm.subject.value,
@@ -70,8 +67,10 @@ if (contactForm) {
         try {
             const response = await fetch('/api/contact/send', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(data).toString(),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
             });
 
             if (response.ok) {
