@@ -17,9 +17,17 @@ public class ContactController {
     @PostMapping("/send")
     public ResponseEntity<?> sendMessage(@RequestBody @NonNull ContactMessage message) {
         try {
+            // 🔍 DEBUG: check incoming data
+            System.out.println("Received: " + message);
+
             ContactMessage savedMessage = contactRepository.save(message);
+
+            // 🔍 DEBUG: check saved data
+            System.out.println("Saved: " + savedMessage);
+
             return ResponseEntity.ok(savedMessage);
         } catch (Exception e) {
+            e.printStackTrace(); // 🔍 show full error
             return ResponseEntity.badRequest().body("Error saving message: " + e.getMessage());
         }
     }

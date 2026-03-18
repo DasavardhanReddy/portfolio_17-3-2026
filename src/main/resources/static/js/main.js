@@ -29,7 +29,7 @@ const navItems = document.querySelectorAll('.nav-links a');
 
 window.addEventListener('scroll', () => {
     let current = '';
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
@@ -48,20 +48,26 @@ window.addEventListener('scroll', () => {
 
 // Handle form submission
 const contactForm = document.getElementById('contactForm');
-if(contactForm) {
+if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalBtnText = submitBtn.innerHTML;
         submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
         submitBtn.disabled = true;
 
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData.entries());
+        //const formData = new FormData(contactForm);
+        //const data = Object.fromEntries(formData.entries());
+        const data = {
+            name: contactForm.name.value,
+            email: contactForm.email.value,
+            subject: contactForm.subject.value,
+            message: contactForm.message.value
+        };
 
         try {
-            const response = await fetch('/api/contact/send', {
+            const response = await fetch('http://localhost:8080/api/contact/send', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
