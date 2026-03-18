@@ -402,7 +402,7 @@
                         <div>
                             <h4>Email</h4>
                             <a href="mailto:tejas@example.com">
-                                gotlurudasavardhanreddy@example.com</a>
+                                gotlurudasavardhanreddy@gmail.com</a>
                         </div>
                     </div>
 
@@ -424,7 +424,8 @@
                 </div>
             </div>
 
-            <form id="contactForm" class="contact-form glass-card">
+            <form id="contactForm" class="contact-form glass-card" data-netlify="true" name="contact" method="POST">
+                <input type="hidden" name="form-name" value="contact" />
                 <div class="input-group">
                     <input type="text" name="name" placeholder="Your Name" required />
                 </div>

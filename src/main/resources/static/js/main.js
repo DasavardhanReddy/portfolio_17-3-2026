@@ -60,6 +60,7 @@ if (contactForm) {
         //const formData = new FormData(contactForm);
         //const data = Object.fromEntries(formData.entries());
         const data = {
+            "form-name": "contact",
             name: contactForm.name.value,
             email: contactForm.email.value,
             subject: contactForm.subject.value,
@@ -67,12 +68,10 @@ if (contactForm) {
         };
 
         try {
-            const response = await fetch('http://localhost:8080/api/contact/send', {
+            const response = await fetch('/api/contact/send', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(data).toString(),
             });
 
             if (response.ok) {
