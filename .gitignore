@@ -1,0 +1,10 @@
+target/
+*.class
+git_status*.txt
+remotes.txt
+*.log
+.DS_Store
+.idea/
+.vscode/
+node_modules/
+.env

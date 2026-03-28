@@ -65,23 +65,24 @@ if (contactForm) {
         };
 
         try {
-            const response = await fetch('/api/contact/send', {
+            const response = await fetch(contactForm.action, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
-                body: JSON.stringify(data),
+                body: new FormData(contactForm)
             });
 
             if (response.ok) {
                 alert('Thank you for your message! It has been sent successfully.');
                 contactForm.reset();
             } else {
-                throw new Error('Failed to send message.');
+                const errorText = await response.text();
+                throw new Error(errorText || 'Failed to send message.');
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('Oops! Something went wrong. Please try again later.');
+            alert('Oops! ' + error.message);
         } finally {
             submitBtn.innerHTML = originalBtnText;
             submitBtn.disabled = false;
